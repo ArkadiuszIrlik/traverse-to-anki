@@ -1,5 +1,6 @@
 {
   "name": "traverse-scraper",
+  "type": "module",
   "version": "1.0.0",
   "description": "A web scraper for traverse.link Mandarin Blueprint cards.",
   "main": "index.js",
