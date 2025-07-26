@@ -5,6 +5,7 @@
   "description": "A web scraper for traverse.link Mandarin Blueprint cards.",
   "main": "index.js",
   "scripts": {
+    "start": "dotenvx run -- tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
