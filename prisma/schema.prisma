@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  posts Post[]
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+model Movie {
+  id                 Int          @id @default(autoincrement())
+  hanzi              String
+  strokeOrder        String       @default("")
+  keyword            String
+  pinyin             String
+  notes              String       @default("")
+  audio              MovieAudio[]
+  isOneCharacterWord Boolean
+}
+
+model MovieAudio {
+  id       Int     @id @default(autoincrement())
+  filename String  @unique
+  movies   Movie[]
+}
