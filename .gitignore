@@ -5,8 +5,8 @@ todo
 .env*
 !.env.example
 
-# prisma
-/prisma/prisma
+# db
+/prisma/db
 
 # runtime files
 browser-profile
