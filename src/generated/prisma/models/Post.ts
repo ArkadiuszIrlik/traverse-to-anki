@@ -206,7 +206,7 @@ type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
           : Prisma.GetScalarType<T[P], PostGroupByOutputType[P]>
       }
     >
-  > 
+  >
 
 
 

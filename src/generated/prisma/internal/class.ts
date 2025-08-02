@@ -40,12 +40,13 @@ const config: runtime.GetPrismaClientConfig = {
     "isCustomOutput": true
   },
   "relativePath": "../../../prisma",
-  "clientVersion": "6.12.0",
-  "engineVersion": "8047c96bbd92db98a2abc7c9323ce77c02c89dbc",
+  "clientVersion": "6.13.0",
+  "engineVersion": "361e86d0ea4987e9f53a565309b3eed797a6bcbd",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -92,7 +93,7 @@ export interface PrismaClientConstructor {
 
   new <
     ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-    U = LogOptions<ClientOptions>,
+    const U = LogOptions<ClientOptions>,
     ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs
   >(options?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>): PrismaClient<ClientOptions, U, ExtArgs>
 }

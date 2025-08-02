@@ -216,7 +216,7 @@ type GetMovieGroupByPayload<T extends MovieGroupByArgs> = Prisma.PrismaPromise<
           : Prisma.GetScalarType<T[P], MovieGroupByOutputType[P]>
       }
     >
-  > 
+  >
 
 
 

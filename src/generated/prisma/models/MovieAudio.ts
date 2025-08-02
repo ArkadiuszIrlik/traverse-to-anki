@@ -181,7 +181,7 @@ type GetMovieAudioGroupByPayload<T extends MovieAudioGroupByArgs> = Prisma.Prism
           : Prisma.GetScalarType<T[P], MovieAudioGroupByOutputType[P]>
       }
     >
-  > 
+  >
 
 
 
