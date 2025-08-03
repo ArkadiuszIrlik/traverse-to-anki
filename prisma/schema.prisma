@@ -39,9 +39,10 @@ model Movie {
 }
 
 model MovieAudio {
-  id       Int     @id @default(autoincrement())
-  filename String  @unique
-  movies   Movie[]
+  id          Int     @id @default(autoincrement())
+  filename    String  @unique
+  originalUrl String
+  movies      Movie[]
 }
 
 model ScrapedDeck {
