@@ -61,5 +61,10 @@ export type Movie = Prisma.MovieModel
  * 
  */
 export type MovieAudio = Prisma.MovieAudioModel
+/**
+ * Model ScrapedDeck
+ * 
+ */
+export type ScrapedDeck = Prisma.ScrapedDeckModel
 
 

@@ -43,3 +43,10 @@ model MovieAudio {
   filename String  @unique
   movies   Movie[]
 }
+
+model ScrapedDeck {
+  id              Int      @id @default(autoincrement())
+  name            String   @unique
+  firstScrapeTime DateTime @default(now())
+  lastScrapeTime  DateTime @default(now())
+}

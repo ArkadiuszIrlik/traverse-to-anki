@@ -397,7 +397,8 @@ export const ModelName = {
   User: 'User',
   Post: 'Post',
   Movie: 'Movie',
-  MovieAudio: 'MovieAudio'
+  MovieAudio: 'MovieAudio',
+  ScrapedDeck: 'ScrapedDeck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -413,7 +414,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "post" | "movie" | "movieAudio"
+    modelProps: "user" | "post" | "movie" | "movieAudio" | "scrapedDeck"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -713,6 +714,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ScrapedDeck: {
+      payload: Prisma.$ScrapedDeckPayload<ExtArgs>
+      fields: Prisma.ScrapedDeckFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ScrapedDeckFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ScrapedDeckFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>
+        }
+        findFirst: {
+          args: Prisma.ScrapedDeckFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ScrapedDeckFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>
+        }
+        findMany: {
+          args: Prisma.ScrapedDeckFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>[]
+        }
+        create: {
+          args: Prisma.ScrapedDeckCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>
+        }
+        createMany: {
+          args: Prisma.ScrapedDeckCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ScrapedDeckCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>[]
+        }
+        delete: {
+          args: Prisma.ScrapedDeckDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>
+        }
+        update: {
+          args: Prisma.ScrapedDeckUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>
+        }
+        deleteMany: {
+          args: Prisma.ScrapedDeckDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ScrapedDeckUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ScrapedDeckUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>[]
+        }
+        upsert: {
+          args: Prisma.ScrapedDeckUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ScrapedDeckPayload>
+        }
+        aggregate: {
+          args: Prisma.ScrapedDeckAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateScrapedDeck>
+        }
+        groupBy: {
+          args: Prisma.ScrapedDeckGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ScrapedDeckGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ScrapedDeckCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ScrapedDeckCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -790,6 +865,16 @@ export const MovieAudioScalarFieldEnum = {
 export type MovieAudioScalarFieldEnum = (typeof MovieAudioScalarFieldEnum)[keyof typeof MovieAudioScalarFieldEnum]
 
 
+export const ScrapedDeckScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  firstScrapeTime: 'firstScrapeTime',
+  lastScrapeTime: 'lastScrapeTime'
+} as const
+
+export type ScrapedDeckScalarFieldEnum = (typeof ScrapedDeckScalarFieldEnum)[keyof typeof ScrapedDeckScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -830,6 +915,13 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
@@ -926,6 +1018,7 @@ export type GlobalOmitConfig = {
   post?: Prisma.PostOmit
   movie?: Prisma.MovieOmit
   movieAudio?: Prisma.MovieAudioOmit
+  scrapedDeck?: Prisma.ScrapedDeckOmit
 }
 
 /* Types for Logging */
