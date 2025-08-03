@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient, type Movie } from '@generated/prisma/client';
 
-interface IMovieRepository {
+export interface IMovieRepository {
   create: (data: Prisma.MovieCreateInput) => Promise<Movie>;
   findById: (id: Movie['id']) => Promise<Movie | null>;
 }
