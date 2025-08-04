@@ -14,6 +14,7 @@ export default async function scrapeMovie(
 
   const noteSection = await page.$('main div.reveal-prompt');
   if (!noteSection) {
+    // logger.error(`scrapeMovie() failed to find noteSection.`);
     throw new Error('scrapeMovie() failed to find noteSection.');
   }
 
@@ -32,6 +33,9 @@ export default async function scrapeMovie(
           .trim(),
     );
   } catch (err) {
+    // logger.error(
+    //   `scrapeMovie() failed to scrape "character" field. Error: ${err}`,
+    // );
     throw new Error(
       `scrapeMovie() failed to scrape "character" field. Error: ${err}`,
     );
@@ -43,6 +47,9 @@ export default async function scrapeMovie(
       (el) => (el as HTMLElement).innerText.trim(),
     );
   } catch (err) {
+    // logger.error(
+    //   `scrapeMovie() failed to scrape "keyword" field. Error: ${err}`,
+    // );
     throw new Error(
       `scrapeMovie() failed to scrape "keyword" field. Error: ${err}`,
     );
@@ -54,6 +61,9 @@ export default async function scrapeMovie(
       (el) => (el as HTMLElement).innerText.trim(),
     );
   } catch (err) {
+    // logger.error(
+    //   `scrapeMovie() failed to scrape "pinyin" field. Error: ${err}`,
+    // );
     throw new Error(
       `scrapeMovie() failed to scrape "pinyin" field. Error: ${err}`,
     );
@@ -69,6 +79,7 @@ export default async function scrapeMovie(
       filename: getFilenameFromURL(src),
     }));
   } catch (err) {
+    // logger.error(`scrapeMovie() failed to scrape "audio" field. Error: ${err}`);
     throw new Error(
       `scrapeMovie() failed to scrape "audio" field. Error: ${err}`,
     );
@@ -80,6 +91,7 @@ export default async function scrapeMovie(
       (el) => (el as HTMLElement).innerText.trim(),
     );
   } catch (err) {
+    // logger.error(`scrapeMovie() failed to scrape "notes" field. Error: ${err}`);
     throw new Error(
       `scrapeMovie() failed to scrape "notes" field. Error: ${err}`,
     );
@@ -91,6 +103,9 @@ export default async function scrapeMovie(
       (el) => !!(el as HTMLElement).innerText.trim(),
     );
   } catch (err) {
+    // logger.error(
+    //   `scrapeMovie() failed to scrape "isOneCharacterWord" field. Error: ${err}`,
+    // );
     throw new Error(
       `scrapeMovie() failed to scrape "isOneCharacterWord" field. Error: ${err}`,
     );
