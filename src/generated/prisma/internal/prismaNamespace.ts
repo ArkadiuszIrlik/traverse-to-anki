@@ -859,7 +859,8 @@ export type MovieScalarFieldEnum = (typeof MovieScalarFieldEnum)[keyof typeof Mo
 
 export const MovieAudioScalarFieldEnum = {
   id: 'id',
-  filename: 'filename'
+  filename: 'filename',
+  sourceUrl: 'sourceUrl'
 } as const
 
 export type MovieAudioScalarFieldEnum = (typeof MovieAudioScalarFieldEnum)[keyof typeof MovieAudioScalarFieldEnum]

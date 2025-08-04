@@ -36,16 +36,19 @@ export type MovieAudioSumAggregateOutputType = {
 export type MovieAudioMinAggregateOutputType = {
   id: number | null
   filename: string | null
+  sourceUrl: string | null
 }
 
 export type MovieAudioMaxAggregateOutputType = {
   id: number | null
   filename: string | null
+  sourceUrl: string | null
 }
 
 export type MovieAudioCountAggregateOutputType = {
   id: number
   filename: number
+  sourceUrl: number
   _all: number
 }
 
@@ -61,16 +64,19 @@ export type MovieAudioSumAggregateInputType = {
 export type MovieAudioMinAggregateInputType = {
   id?: true
   filename?: true
+  sourceUrl?: true
 }
 
 export type MovieAudioMaxAggregateInputType = {
   id?: true
   filename?: true
+  sourceUrl?: true
 }
 
 export type MovieAudioCountAggregateInputType = {
   id?: true
   filename?: true
+  sourceUrl?: true
   _all?: true
 }
 
@@ -163,6 +169,7 @@ export type MovieAudioGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 export type MovieAudioGroupByOutputType = {
   id: number
   filename: string
+  sourceUrl: string
   _count: MovieAudioCountAggregateOutputType | null
   _avg: MovieAudioAvgAggregateOutputType | null
   _sum: MovieAudioSumAggregateOutputType | null
@@ -191,12 +198,14 @@ export type MovieAudioWhereInput = {
   NOT?: Prisma.MovieAudioWhereInput | Prisma.MovieAudioWhereInput[]
   id?: Prisma.IntFilter<"MovieAudio"> | number
   filename?: Prisma.StringFilter<"MovieAudio"> | string
+  sourceUrl?: Prisma.StringFilter<"MovieAudio"> | string
   movies?: Prisma.MovieListRelationFilter
 }
 
 export type MovieAudioOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   filename?: Prisma.SortOrder
+  sourceUrl?: Prisma.SortOrder
   movies?: Prisma.MovieOrderByRelationAggregateInput
 }
 
@@ -206,12 +215,14 @@ export type MovieAudioWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.MovieAudioWhereInput | Prisma.MovieAudioWhereInput[]
   OR?: Prisma.MovieAudioWhereInput[]
   NOT?: Prisma.MovieAudioWhereInput | Prisma.MovieAudioWhereInput[]
+  sourceUrl?: Prisma.StringFilter<"MovieAudio"> | string
   movies?: Prisma.MovieListRelationFilter
 }, "id" | "filename">
 
 export type MovieAudioOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   filename?: Prisma.SortOrder
+  sourceUrl?: Prisma.SortOrder
   _count?: Prisma.MovieAudioCountOrderByAggregateInput
   _avg?: Prisma.MovieAudioAvgOrderByAggregateInput
   _max?: Prisma.MovieAudioMaxOrderByAggregateInput
@@ -225,42 +236,50 @@ export type MovieAudioScalarWhereWithAggregatesInput = {
   NOT?: Prisma.MovieAudioScalarWhereWithAggregatesInput | Prisma.MovieAudioScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"MovieAudio"> | number
   filename?: Prisma.StringWithAggregatesFilter<"MovieAudio"> | string
+  sourceUrl?: Prisma.StringWithAggregatesFilter<"MovieAudio"> | string
 }
 
 export type MovieAudioCreateInput = {
   filename: string
+  sourceUrl: string
   movies?: Prisma.MovieCreateNestedManyWithoutAudioInput
 }
 
 export type MovieAudioUncheckedCreateInput = {
   id?: number
   filename: string
+  sourceUrl: string
   movies?: Prisma.MovieUncheckedCreateNestedManyWithoutAudioInput
 }
 
 export type MovieAudioUpdateInput = {
   filename?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceUrl?: Prisma.StringFieldUpdateOperationsInput | string
   movies?: Prisma.MovieUpdateManyWithoutAudioNestedInput
 }
 
 export type MovieAudioUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceUrl?: Prisma.StringFieldUpdateOperationsInput | string
   movies?: Prisma.MovieUncheckedUpdateManyWithoutAudioNestedInput
 }
 
 export type MovieAudioCreateManyInput = {
   id?: number
   filename: string
+  sourceUrl: string
 }
 
 export type MovieAudioUpdateManyMutationInput = {
   filename?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MovieAudioUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MovieAudioListRelationFilter = {
@@ -276,6 +295,7 @@ export type MovieAudioOrderByRelationAggregateInput = {
 export type MovieAudioCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   filename?: Prisma.SortOrder
+  sourceUrl?: Prisma.SortOrder
 }
 
 export type MovieAudioAvgOrderByAggregateInput = {
@@ -285,11 +305,13 @@ export type MovieAudioAvgOrderByAggregateInput = {
 export type MovieAudioMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   filename?: Prisma.SortOrder
+  sourceUrl?: Prisma.SortOrder
 }
 
 export type MovieAudioMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   filename?: Prisma.SortOrder
+  sourceUrl?: Prisma.SortOrder
 }
 
 export type MovieAudioSumOrderByAggregateInput = {
@@ -336,11 +358,13 @@ export type MovieAudioUncheckedUpdateManyWithoutMoviesNestedInput = {
 
 export type MovieAudioCreateWithoutMoviesInput = {
   filename: string
+  sourceUrl: string
 }
 
 export type MovieAudioUncheckedCreateWithoutMoviesInput = {
   id?: number
   filename: string
+  sourceUrl: string
 }
 
 export type MovieAudioCreateOrConnectWithoutMoviesInput = {
@@ -370,20 +394,24 @@ export type MovieAudioScalarWhereInput = {
   NOT?: Prisma.MovieAudioScalarWhereInput | Prisma.MovieAudioScalarWhereInput[]
   id?: Prisma.IntFilter<"MovieAudio"> | number
   filename?: Prisma.StringFilter<"MovieAudio"> | string
+  sourceUrl?: Prisma.StringFilter<"MovieAudio"> | string
 }
 
 export type MovieAudioUpdateWithoutMoviesInput = {
   filename?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MovieAudioUncheckedUpdateWithoutMoviesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MovieAudioUncheckedUpdateManyWithoutMoviesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   filename?: Prisma.StringFieldUpdateOperationsInput | string
+  sourceUrl?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -420,6 +448,7 @@ export type MovieAudioCountOutputTypeCountMoviesArgs<ExtArgs extends runtime.Typ
 export type MovieAudioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   filename?: boolean
+  sourceUrl?: boolean
   movies?: boolean | Prisma.MovieAudio$moviesArgs<ExtArgs>
   _count?: boolean | Prisma.MovieAudioCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["movieAudio"]>
@@ -427,19 +456,22 @@ export type MovieAudioSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type MovieAudioSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   filename?: boolean
+  sourceUrl?: boolean
 }, ExtArgs["result"]["movieAudio"]>
 
 export type MovieAudioSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   filename?: boolean
+  sourceUrl?: boolean
 }, ExtArgs["result"]["movieAudio"]>
 
 export type MovieAudioSelectScalar = {
   id?: boolean
   filename?: boolean
+  sourceUrl?: boolean
 }
 
-export type MovieAudioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "filename", ExtArgs["result"]["movieAudio"]>
+export type MovieAudioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "filename" | "sourceUrl", ExtArgs["result"]["movieAudio"]>
 export type MovieAudioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   movies?: boolean | Prisma.MovieAudio$moviesArgs<ExtArgs>
   _count?: boolean | Prisma.MovieAudioCountOutputTypeDefaultArgs<ExtArgs>
@@ -455,6 +487,7 @@ export type $MovieAudioPayload<ExtArgs extends runtime.Types.Extensions.Internal
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     filename: string
+    sourceUrl: string
   }, ExtArgs["result"]["movieAudio"]>
   composites: {}
 }
@@ -881,6 +914,7 @@ export interface Prisma__MovieAudioClient<T, Null = never, ExtArgs extends runti
 export interface MovieAudioFieldRefs {
   readonly id: Prisma.FieldRef<"MovieAudio", 'Int'>
   readonly filename: Prisma.FieldRef<"MovieAudio", 'String'>
+  readonly sourceUrl: Prisma.FieldRef<"MovieAudio", 'String'>
 }
     
 
