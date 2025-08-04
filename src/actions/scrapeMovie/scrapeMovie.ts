@@ -1,5 +1,7 @@
-import type { IMovieRepository } from '@db/movie.repository';
-import type { MovieAudioCreateInput } from '@generated/prisma/models';
+import type {
+  MovieAudioCreateInput,
+  MovieCreateInput,
+} from '@generated/prisma/models';
 import { getFilenameFromURL } from '@utils/string';
 import type { Page } from 'puppeteer';
 
@@ -7,8 +9,7 @@ export default async function scrapeMovie(
   page: Page,
   deck: string,
   section: string,
-  movieRepository: IMovieRepository,
-) {
+): Promise<MovieCreateInput> {
   await page.waitForSelector(
     'main div.reveal-prompt div.field-name::-p-text(NOTES)',
   );
@@ -97,14 +98,14 @@ export default async function scrapeMovie(
     );
   }
 
-  const movie = await movieRepository.create({
+  const movie: MovieCreateInput = {
     hanzi: character,
     keyword,
     pinyin,
     audio: { create: audio },
     notes,
     isOneCharacterWord,
-  });
+  };
 
   return movie;
 }
