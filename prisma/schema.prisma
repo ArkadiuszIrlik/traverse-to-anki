@@ -45,6 +45,12 @@ model MovieAudio {
   movies    Movie[]
 }
 
+model Prop {
+  id        Int    @id @default(autoincrement())
+  component String @unique
+  prop      String
+}
+
 model ScrapedDeck {
   id              Int      @id @default(autoincrement())
   name            String   @unique

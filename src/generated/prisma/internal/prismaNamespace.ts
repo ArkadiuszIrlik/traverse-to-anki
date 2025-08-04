@@ -398,6 +398,7 @@ export const ModelName = {
   Post: 'Post',
   Movie: 'Movie',
   MovieAudio: 'MovieAudio',
+  Prop: 'Prop',
   ScrapedDeck: 'ScrapedDeck'
 } as const
 
@@ -414,7 +415,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "post" | "movie" | "movieAudio" | "scrapedDeck"
+    modelProps: "user" | "post" | "movie" | "movieAudio" | "prop" | "scrapedDeck"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -714,6 +715,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Prop: {
+      payload: Prisma.$PropPayload<ExtArgs>
+      fields: Prisma.PropFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PropFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PropFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>
+        }
+        findFirst: {
+          args: Prisma.PropFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PropFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>
+        }
+        findMany: {
+          args: Prisma.PropFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>[]
+        }
+        create: {
+          args: Prisma.PropCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>
+        }
+        createMany: {
+          args: Prisma.PropCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PropCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>[]
+        }
+        delete: {
+          args: Prisma.PropDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>
+        }
+        update: {
+          args: Prisma.PropUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>
+        }
+        deleteMany: {
+          args: Prisma.PropDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PropUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PropUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>[]
+        }
+        upsert: {
+          args: Prisma.PropUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropPayload>
+        }
+        aggregate: {
+          args: Prisma.PropAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProp>
+        }
+        groupBy: {
+          args: Prisma.PropGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PropGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PropCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PropCountAggregateOutputType> | number
+        }
+      }
+    }
     ScrapedDeck: {
       payload: Prisma.$ScrapedDeckPayload<ExtArgs>
       fields: Prisma.ScrapedDeckFieldRefs
@@ -864,6 +939,15 @@ export const MovieAudioScalarFieldEnum = {
 } as const
 
 export type MovieAudioScalarFieldEnum = (typeof MovieAudioScalarFieldEnum)[keyof typeof MovieAudioScalarFieldEnum]
+
+
+export const PropScalarFieldEnum = {
+  id: 'id',
+  component: 'component',
+  prop: 'prop'
+} as const
+
+export type PropScalarFieldEnum = (typeof PropScalarFieldEnum)[keyof typeof PropScalarFieldEnum]
 
 
 export const ScrapedDeckScalarFieldEnum = {
@@ -1019,6 +1103,7 @@ export type GlobalOmitConfig = {
   post?: Prisma.PostOmit
   movie?: Prisma.MovieOmit
   movieAudio?: Prisma.MovieAudioOmit
+  prop?: Prisma.PropOmit
   scrapedDeck?: Prisma.ScrapedDeckOmit
 }
 
