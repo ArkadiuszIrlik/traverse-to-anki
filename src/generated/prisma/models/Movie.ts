@@ -247,17 +247,17 @@ export type MovieOrderByWithRelationInput = {
 
 export type MovieWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  hanzi?: string
   AND?: Prisma.MovieWhereInput | Prisma.MovieWhereInput[]
   OR?: Prisma.MovieWhereInput[]
   NOT?: Prisma.MovieWhereInput | Prisma.MovieWhereInput[]
-  hanzi?: Prisma.StringFilter<"Movie"> | string
   strokeOrder?: Prisma.StringFilter<"Movie"> | string
   keyword?: Prisma.StringFilter<"Movie"> | string
   pinyin?: Prisma.StringFilter<"Movie"> | string
   notes?: Prisma.StringFilter<"Movie"> | string
   isOneCharacterWord?: Prisma.BoolFilter<"Movie"> | boolean
   audio?: Prisma.MovieAudioListRelationFilter
-}, "id">
+}, "id" | "hanzi">
 
 export type MovieOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

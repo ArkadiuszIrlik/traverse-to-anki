@@ -29,7 +29,7 @@ model Post {
 
 model Movie {
   id                 Int          @id @default(autoincrement())
-  hanzi              String
+  hanzi              String       @unique
   strokeOrder        String       @default("")
   keyword            String
   pinyin             String
