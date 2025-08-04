@@ -7,8 +7,6 @@ import type { Page } from 'puppeteer';
 
 export default async function scrapeMovie(
   page: Page,
-  deck: string,
-  section: string,
 ): Promise<MovieCreateInput> {
   await page.waitForSelector(
     'main div.reveal-prompt div.field-name::-p-text(NOTES)',
