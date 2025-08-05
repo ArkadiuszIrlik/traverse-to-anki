@@ -1105,6 +1105,7 @@ export const SentenceScalarFieldEnum = {
   text: 'text',
   highlightStartIndex: 'highlightStartIndex',
   highlightEndIndex: 'highlightEndIndex',
+  highlightText: 'highlightText',
   highlightMeaning: 'highlightMeaning',
   context: 'context',
   personalNotes: 'personalNotes'

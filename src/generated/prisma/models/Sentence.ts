@@ -42,6 +42,7 @@ export type SentenceMinAggregateOutputType = {
   text: string | null
   highlightStartIndex: number | null
   highlightEndIndex: number | null
+  highlightText: string | null
   highlightMeaning: string | null
   context: string | null
   personalNotes: string | null
@@ -52,6 +53,7 @@ export type SentenceMaxAggregateOutputType = {
   text: string | null
   highlightStartIndex: number | null
   highlightEndIndex: number | null
+  highlightText: string | null
   highlightMeaning: string | null
   context: string | null
   personalNotes: string | null
@@ -62,6 +64,7 @@ export type SentenceCountAggregateOutputType = {
   text: number
   highlightStartIndex: number
   highlightEndIndex: number
+  highlightText: number
   highlightMeaning: number
   context: number
   personalNotes: number
@@ -86,6 +89,7 @@ export type SentenceMinAggregateInputType = {
   text?: true
   highlightStartIndex?: true
   highlightEndIndex?: true
+  highlightText?: true
   highlightMeaning?: true
   context?: true
   personalNotes?: true
@@ -96,6 +100,7 @@ export type SentenceMaxAggregateInputType = {
   text?: true
   highlightStartIndex?: true
   highlightEndIndex?: true
+  highlightText?: true
   highlightMeaning?: true
   context?: true
   personalNotes?: true
@@ -106,6 +111,7 @@ export type SentenceCountAggregateInputType = {
   text?: true
   highlightStartIndex?: true
   highlightEndIndex?: true
+  highlightText?: true
   highlightMeaning?: true
   context?: true
   personalNotes?: true
@@ -203,6 +209,7 @@ export type SentenceGroupByOutputType = {
   text: string
   highlightStartIndex: number
   highlightEndIndex: number
+  highlightText: string
   highlightMeaning: string
   context: string
   personalNotes: string
@@ -236,6 +243,7 @@ export type SentenceWhereInput = {
   text?: Prisma.StringFilter<"Sentence"> | string
   highlightStartIndex?: Prisma.IntFilter<"Sentence"> | number
   highlightEndIndex?: Prisma.IntFilter<"Sentence"> | number
+  highlightText?: Prisma.StringFilter<"Sentence"> | string
   highlightMeaning?: Prisma.StringFilter<"Sentence"> | string
   context?: Prisma.StringFilter<"Sentence"> | string
   personalNotes?: Prisma.StringFilter<"Sentence"> | string
@@ -247,6 +255,7 @@ export type SentenceOrderByWithRelationInput = {
   text?: Prisma.SortOrder
   highlightStartIndex?: Prisma.SortOrder
   highlightEndIndex?: Prisma.SortOrder
+  highlightText?: Prisma.SortOrder
   highlightMeaning?: Prisma.SortOrder
   context?: Prisma.SortOrder
   personalNotes?: Prisma.SortOrder
@@ -261,6 +270,7 @@ export type SentenceWhereUniqueInput = Prisma.AtLeast<{
   text?: Prisma.StringFilter<"Sentence"> | string
   highlightStartIndex?: Prisma.IntFilter<"Sentence"> | number
   highlightEndIndex?: Prisma.IntFilter<"Sentence"> | number
+  highlightText?: Prisma.StringFilter<"Sentence"> | string
   highlightMeaning?: Prisma.StringFilter<"Sentence"> | string
   context?: Prisma.StringFilter<"Sentence"> | string
   personalNotes?: Prisma.StringFilter<"Sentence"> | string
@@ -272,6 +282,7 @@ export type SentenceOrderByWithAggregationInput = {
   text?: Prisma.SortOrder
   highlightStartIndex?: Prisma.SortOrder
   highlightEndIndex?: Prisma.SortOrder
+  highlightText?: Prisma.SortOrder
   highlightMeaning?: Prisma.SortOrder
   context?: Prisma.SortOrder
   personalNotes?: Prisma.SortOrder
@@ -290,6 +301,7 @@ export type SentenceScalarWhereWithAggregatesInput = {
   text?: Prisma.StringWithAggregatesFilter<"Sentence"> | string
   highlightStartIndex?: Prisma.IntWithAggregatesFilter<"Sentence"> | number
   highlightEndIndex?: Prisma.IntWithAggregatesFilter<"Sentence"> | number
+  highlightText?: Prisma.StringWithAggregatesFilter<"Sentence"> | string
   highlightMeaning?: Prisma.StringWithAggregatesFilter<"Sentence"> | string
   context?: Prisma.StringWithAggregatesFilter<"Sentence"> | string
   personalNotes?: Prisma.StringWithAggregatesFilter<"Sentence"> | string
@@ -299,6 +311,7 @@ export type SentenceCreateInput = {
   text: string
   highlightStartIndex: number
   highlightEndIndex: number
+  highlightText: string
   highlightMeaning: string
   context?: string
   personalNotes?: string
@@ -310,6 +323,7 @@ export type SentenceUncheckedCreateInput = {
   text: string
   highlightStartIndex: number
   highlightEndIndex: number
+  highlightText: string
   highlightMeaning: string
   context?: string
   personalNotes?: string
@@ -320,6 +334,7 @@ export type SentenceUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   highlightStartIndex?: Prisma.IntFieldUpdateOperationsInput | number
   highlightEndIndex?: Prisma.IntFieldUpdateOperationsInput | number
+  highlightText?: Prisma.StringFieldUpdateOperationsInput | string
   highlightMeaning?: Prisma.StringFieldUpdateOperationsInput | string
   context?: Prisma.StringFieldUpdateOperationsInput | string
   personalNotes?: Prisma.StringFieldUpdateOperationsInput | string
@@ -331,6 +346,7 @@ export type SentenceUncheckedUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   highlightStartIndex?: Prisma.IntFieldUpdateOperationsInput | number
   highlightEndIndex?: Prisma.IntFieldUpdateOperationsInput | number
+  highlightText?: Prisma.StringFieldUpdateOperationsInput | string
   highlightMeaning?: Prisma.StringFieldUpdateOperationsInput | string
   context?: Prisma.StringFieldUpdateOperationsInput | string
   personalNotes?: Prisma.StringFieldUpdateOperationsInput | string
@@ -342,6 +358,7 @@ export type SentenceCreateManyInput = {
   text: string
   highlightStartIndex: number
   highlightEndIndex: number
+  highlightText: string
   highlightMeaning: string
   context?: string
   personalNotes?: string
@@ -351,6 +368,7 @@ export type SentenceUpdateManyMutationInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   highlightStartIndex?: Prisma.IntFieldUpdateOperationsInput | number
   highlightEndIndex?: Prisma.IntFieldUpdateOperationsInput | number
+  highlightText?: Prisma.StringFieldUpdateOperationsInput | string
   highlightMeaning?: Prisma.StringFieldUpdateOperationsInput | string
   context?: Prisma.StringFieldUpdateOperationsInput | string
   personalNotes?: Prisma.StringFieldUpdateOperationsInput | string
@@ -361,6 +379,7 @@ export type SentenceUncheckedUpdateManyInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   highlightStartIndex?: Prisma.IntFieldUpdateOperationsInput | number
   highlightEndIndex?: Prisma.IntFieldUpdateOperationsInput | number
+  highlightText?: Prisma.StringFieldUpdateOperationsInput | string
   highlightMeaning?: Prisma.StringFieldUpdateOperationsInput | string
   context?: Prisma.StringFieldUpdateOperationsInput | string
   personalNotes?: Prisma.StringFieldUpdateOperationsInput | string
@@ -371,6 +390,7 @@ export type SentenceCountOrderByAggregateInput = {
   text?: Prisma.SortOrder
   highlightStartIndex?: Prisma.SortOrder
   highlightEndIndex?: Prisma.SortOrder
+  highlightText?: Prisma.SortOrder
   highlightMeaning?: Prisma.SortOrder
   context?: Prisma.SortOrder
   personalNotes?: Prisma.SortOrder
@@ -387,6 +407,7 @@ export type SentenceMaxOrderByAggregateInput = {
   text?: Prisma.SortOrder
   highlightStartIndex?: Prisma.SortOrder
   highlightEndIndex?: Prisma.SortOrder
+  highlightText?: Prisma.SortOrder
   highlightMeaning?: Prisma.SortOrder
   context?: Prisma.SortOrder
   personalNotes?: Prisma.SortOrder
@@ -397,6 +418,7 @@ export type SentenceMinOrderByAggregateInput = {
   text?: Prisma.SortOrder
   highlightStartIndex?: Prisma.SortOrder
   highlightEndIndex?: Prisma.SortOrder
+  highlightText?: Prisma.SortOrder
   highlightMeaning?: Prisma.SortOrder
   context?: Prisma.SortOrder
   personalNotes?: Prisma.SortOrder
@@ -460,6 +482,7 @@ export type SentenceCreateWithoutAudioInput = {
   text: string
   highlightStartIndex: number
   highlightEndIndex: number
+  highlightText: string
   highlightMeaning: string
   context?: string
   personalNotes?: string
@@ -470,6 +493,7 @@ export type SentenceUncheckedCreateWithoutAudioInput = {
   text: string
   highlightStartIndex: number
   highlightEndIndex: number
+  highlightText: string
   highlightMeaning: string
   context?: string
   personalNotes?: string
@@ -504,6 +528,7 @@ export type SentenceScalarWhereInput = {
   text?: Prisma.StringFilter<"Sentence"> | string
   highlightStartIndex?: Prisma.IntFilter<"Sentence"> | number
   highlightEndIndex?: Prisma.IntFilter<"Sentence"> | number
+  highlightText?: Prisma.StringFilter<"Sentence"> | string
   highlightMeaning?: Prisma.StringFilter<"Sentence"> | string
   context?: Prisma.StringFilter<"Sentence"> | string
   personalNotes?: Prisma.StringFilter<"Sentence"> | string
@@ -513,6 +538,7 @@ export type SentenceUpdateWithoutAudioInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   highlightStartIndex?: Prisma.IntFieldUpdateOperationsInput | number
   highlightEndIndex?: Prisma.IntFieldUpdateOperationsInput | number
+  highlightText?: Prisma.StringFieldUpdateOperationsInput | string
   highlightMeaning?: Prisma.StringFieldUpdateOperationsInput | string
   context?: Prisma.StringFieldUpdateOperationsInput | string
   personalNotes?: Prisma.StringFieldUpdateOperationsInput | string
@@ -523,6 +549,7 @@ export type SentenceUncheckedUpdateWithoutAudioInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   highlightStartIndex?: Prisma.IntFieldUpdateOperationsInput | number
   highlightEndIndex?: Prisma.IntFieldUpdateOperationsInput | number
+  highlightText?: Prisma.StringFieldUpdateOperationsInput | string
   highlightMeaning?: Prisma.StringFieldUpdateOperationsInput | string
   context?: Prisma.StringFieldUpdateOperationsInput | string
   personalNotes?: Prisma.StringFieldUpdateOperationsInput | string
@@ -533,6 +560,7 @@ export type SentenceUncheckedUpdateManyWithoutAudioInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   highlightStartIndex?: Prisma.IntFieldUpdateOperationsInput | number
   highlightEndIndex?: Prisma.IntFieldUpdateOperationsInput | number
+  highlightText?: Prisma.StringFieldUpdateOperationsInput | string
   highlightMeaning?: Prisma.StringFieldUpdateOperationsInput | string
   context?: Prisma.StringFieldUpdateOperationsInput | string
   personalNotes?: Prisma.StringFieldUpdateOperationsInput | string
@@ -574,6 +602,7 @@ export type SentenceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   text?: boolean
   highlightStartIndex?: boolean
   highlightEndIndex?: boolean
+  highlightText?: boolean
   highlightMeaning?: boolean
   context?: boolean
   personalNotes?: boolean
@@ -586,6 +615,7 @@ export type SentenceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   text?: boolean
   highlightStartIndex?: boolean
   highlightEndIndex?: boolean
+  highlightText?: boolean
   highlightMeaning?: boolean
   context?: boolean
   personalNotes?: boolean
@@ -596,6 +626,7 @@ export type SentenceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   text?: boolean
   highlightStartIndex?: boolean
   highlightEndIndex?: boolean
+  highlightText?: boolean
   highlightMeaning?: boolean
   context?: boolean
   personalNotes?: boolean
@@ -606,12 +637,13 @@ export type SentenceSelectScalar = {
   text?: boolean
   highlightStartIndex?: boolean
   highlightEndIndex?: boolean
+  highlightText?: boolean
   highlightMeaning?: boolean
   context?: boolean
   personalNotes?: boolean
 }
 
-export type SentenceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "text" | "highlightStartIndex" | "highlightEndIndex" | "highlightMeaning" | "context" | "personalNotes", ExtArgs["result"]["sentence"]>
+export type SentenceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "text" | "highlightStartIndex" | "highlightEndIndex" | "highlightText" | "highlightMeaning" | "context" | "personalNotes", ExtArgs["result"]["sentence"]>
 export type SentenceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   audio?: boolean | Prisma.Sentence$audioArgs<ExtArgs>
   _count?: boolean | Prisma.SentenceCountOutputTypeDefaultArgs<ExtArgs>
@@ -629,6 +661,7 @@ export type $SentencePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     text: string
     highlightStartIndex: number
     highlightEndIndex: number
+    highlightText: string
     highlightMeaning: string
     context: string
     personalNotes: string
@@ -1060,6 +1093,7 @@ export interface SentenceFieldRefs {
   readonly text: Prisma.FieldRef<"Sentence", 'String'>
   readonly highlightStartIndex: Prisma.FieldRef<"Sentence", 'Int'>
   readonly highlightEndIndex: Prisma.FieldRef<"Sentence", 'Int'>
+  readonly highlightText: Prisma.FieldRef<"Sentence", 'String'>
   readonly highlightMeaning: Prisma.FieldRef<"Sentence", 'String'>
   readonly context: Prisma.FieldRef<"Sentence", 'String'>
   readonly personalNotes: Prisma.FieldRef<"Sentence", 'String'>
