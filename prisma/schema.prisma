@@ -51,6 +51,24 @@ model Prop {
   prop      String
 }
 
+model Sentence {
+  id                  Int             @id @default(autoincrement())
+  text                String
+  highlightStartIndex Int
+  highlightEndIndex   Int
+  highlightMeaning    String
+  context             String          @default("")
+  personalNotes       String          @default("")
+  audio               SentenceAudio[]
+}
+
+model SentenceAudio {
+  id        Int        @id @default(autoincrement())
+  filename  String     @unique
+  sourceUrl String
+  sentences Sentence[]
+}
+
 model ScrapedDeck {
   id              Int      @id @default(autoincrement())
   name            String   @unique

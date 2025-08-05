@@ -399,6 +399,8 @@ export const ModelName = {
   Movie: 'Movie',
   MovieAudio: 'MovieAudio',
   Prop: 'Prop',
+  Sentence: 'Sentence',
+  SentenceAudio: 'SentenceAudio',
   ScrapedDeck: 'ScrapedDeck'
 } as const
 
@@ -415,7 +417,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "post" | "movie" | "movieAudio" | "prop" | "scrapedDeck"
+    modelProps: "user" | "post" | "movie" | "movieAudio" | "prop" | "sentence" | "sentenceAudio" | "scrapedDeck"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -789,6 +791,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Sentence: {
+      payload: Prisma.$SentencePayload<ExtArgs>
+      fields: Prisma.SentenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SentenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SentenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
+        }
+        findFirst: {
+          args: Prisma.SentenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SentenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
+        }
+        findMany: {
+          args: Prisma.SentenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>[]
+        }
+        create: {
+          args: Prisma.SentenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
+        }
+        createMany: {
+          args: Prisma.SentenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SentenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>[]
+        }
+        delete: {
+          args: Prisma.SentenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
+        }
+        update: {
+          args: Prisma.SentenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
+        }
+        deleteMany: {
+          args: Prisma.SentenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SentenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SentenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>[]
+        }
+        upsert: {
+          args: Prisma.SentenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentencePayload>
+        }
+        aggregate: {
+          args: Prisma.SentenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSentence>
+        }
+        groupBy: {
+          args: Prisma.SentenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SentenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceCountAggregateOutputType> | number
+        }
+      }
+    }
+    SentenceAudio: {
+      payload: Prisma.$SentenceAudioPayload<ExtArgs>
+      fields: Prisma.SentenceAudioFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SentenceAudioFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SentenceAudioFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>
+        }
+        findFirst: {
+          args: Prisma.SentenceAudioFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SentenceAudioFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>
+        }
+        findMany: {
+          args: Prisma.SentenceAudioFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>[]
+        }
+        create: {
+          args: Prisma.SentenceAudioCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>
+        }
+        createMany: {
+          args: Prisma.SentenceAudioCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SentenceAudioCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>[]
+        }
+        delete: {
+          args: Prisma.SentenceAudioDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>
+        }
+        update: {
+          args: Prisma.SentenceAudioUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>
+        }
+        deleteMany: {
+          args: Prisma.SentenceAudioDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SentenceAudioUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SentenceAudioUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>[]
+        }
+        upsert: {
+          args: Prisma.SentenceAudioUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SentenceAudioPayload>
+        }
+        aggregate: {
+          args: Prisma.SentenceAudioAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSentenceAudio>
+        }
+        groupBy: {
+          args: Prisma.SentenceAudioGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceAudioGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SentenceAudioCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SentenceAudioCountAggregateOutputType> | number
+        }
+      }
+    }
     ScrapedDeck: {
       payload: Prisma.$ScrapedDeckPayload<ExtArgs>
       fields: Prisma.ScrapedDeckFieldRefs
@@ -950,6 +1100,28 @@ export const PropScalarFieldEnum = {
 export type PropScalarFieldEnum = (typeof PropScalarFieldEnum)[keyof typeof PropScalarFieldEnum]
 
 
+export const SentenceScalarFieldEnum = {
+  id: 'id',
+  text: 'text',
+  highlightStartIndex: 'highlightStartIndex',
+  highlightEndIndex: 'highlightEndIndex',
+  highlightMeaning: 'highlightMeaning',
+  context: 'context',
+  personalNotes: 'personalNotes'
+} as const
+
+export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typeof SentenceScalarFieldEnum]
+
+
+export const SentenceAudioScalarFieldEnum = {
+  id: 'id',
+  filename: 'filename',
+  sourceUrl: 'sourceUrl'
+} as const
+
+export type SentenceAudioScalarFieldEnum = (typeof SentenceAudioScalarFieldEnum)[keyof typeof SentenceAudioScalarFieldEnum]
+
+
 export const ScrapedDeckScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -1104,6 +1276,8 @@ export type GlobalOmitConfig = {
   movie?: Prisma.MovieOmit
   movieAudio?: Prisma.MovieAudioOmit
   prop?: Prisma.PropOmit
+  sentence?: Prisma.SentenceOmit
+  sentenceAudio?: Prisma.SentenceAudioOmit
   scrapedDeck?: Prisma.ScrapedDeckOmit
 }
 
