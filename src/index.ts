@@ -1,0 +1,162 @@
+import puppeteer from 'puppeteer';
+import path from 'path';
+import { login, myName } from 'src/actions/login/login';
+import logger from 'src/logger/logger';
+import { URL_APP_PAGE } from '@config/url';
+import { enterApp } from 'src/actions/enterApp/enterApp';
+import movieRepository from '@db/movie.repository';
+import { scrapeDecks } from 'src/actions/scrapeDecks/scrapeDecks';
+import scrapeMovie from 'src/actions/scrapeMovie/scrapeMovie';
+import scrapeProp from 'src/actions/scrapeProp/scrapeProp';
+import propRepository from '@db/prop.repository';
+import scrapeSentence from 'src/actions/scrapeSentence/scrapeSentence';
+import sentenceRepository from '@db/sentence.repository';
+import { PrismaClientKnownRequestError } from '@generated/prisma/internal/prismaNamespace';
+import scrapedDeckRepository from '@db/scrapedDeck.repository';
+// console.log(process.env.TRAVERSE_PASS);
+// console.log(path.resolve("." + "/logs"));
+// logger.info("info");
+// logger.trace("trace");
+// logger.fatal("fatal");
+// logger.debug("debug");
+
+// const newMovie = await movieRepository.create({
+//   hanzi: 'dw',
+//   isOneCharacterWord: false,
+//   keyword: 'To Clean',
+//   pinyin: 'shi',
+//   notes: 'This is a testing movie',
+// });
+
+const browser = await puppeteer.launch({
+  headless: false, // show the browser window
+  devtools: true, // auto-open DevTools for each page
+  //   slowMo: 250, // wait 250ms between operations,
+  userDataDir: './browser-profile',
+  // slowMo: 1000,
+});
+// enter app
+const page = await browser.newPage();
+try {
+  await enterApp(page);
+  logger.info('Successfully entered app.');
+} catch (err) {
+  logger.error(err);
+  logger.fatal(`Couldn't enter app. Shutting down.`);
+  // SHUTDOWN HERE
+}
+
+// try {
+//   await scrapeDecks(page, []);
+//   logger.info('Finished scraping decks.');
+// } catch (err) {
+//   logger.error(err);
+//   logger.fatal(`Couldn't scrape decks. Shutting down.`);
+//   // SHUTDOWN HERE
+// }
+
+// try {
+//   await page.goto('https://traverse.link/Mandarin_Blueprint/%E5%88%A9');
+//   const nextMovie = await scrapeMovie(
+//     page,
+//     'example-deck',
+//     'example-section',
+//     movieRepository,
+//   );
+//   console.log(nextMovie);
+// } catch (err) {
+//   console.error(err);
+//   logger.error(
+//     { sourceError: err },
+//     `Failed to scrape movie at https://traverse.link/Mandarin_Blueprint/%E5%88%A9.`,
+//   );
+// }
+
+// try {
+//   await page.goto(
+//     'https://traverse.link/Mandarin_Blueprint/%E7%9B%BE%EF%BC%88PROP%EF%BC%89',
+//   );
+//   const nextMovie = await scrapeProp(
+//     page,
+//     'example-deck',
+//     'example-section',
+//     propRepository,
+//   );
+//   console.log(nextMovie);
+// } catch (err) {
+//   console.error(err);
+//   logger.error(
+//     { sourceError: err },
+//     `Failed to scrape movie at https://traverse.link/Mandarin_Blueprint/%E5%88%A9.`,
+//   );
+// }
+
+// scrapeDecks test 8/27
+await scrapeDecks(
+  page,
+  scrapedDeckRepository,
+  [],
+  // (name: string) => name === '48级 - Intermediate',
+  (name: string) => name.includes('Level') || name.includes('级'),
+);
+
+// await page.goto('https://traverse.link/Mandarin_Blueprint/%E5%88%A9');
+// const newmovie = await scrapeMovie(page);
+// console.log(newmovie);
+
+// scrape movie test
+/*
+const sentencePageUrls = [
+  // word meaning
+  'https://traverse.link/Mandarin_Blueprint/n4d5bfhjx055yiyknirrts2t',
+  // word meaning + note
+  'https://traverse.link/Mandarin_Blueprint/bjxpyit6f8ahvfir0jrki7e5',
+  // word meaning + note + sentence translation
+  'https://traverse.link/Mandarin_Blueprint/v0e7ypaa5rpwrvozlwsxl1bk',
+];
+
+try {
+  for (const url of sentencePageUrls) {
+    await page.goto(url);
+    const nextSentence = await scrapeSentence(page);
+    await sentenceRepository.create(nextSentence);
+  }
+  console.log('all done!');
+  await browser.close();
+} catch (err) {
+  if (err instanceof PrismaClientKnownRequestError) {
+    if (err.code === 'P2002') {
+      console.error("This document isn't unique.");
+    }
+  }
+  console.error(err);
+}
+*/
+
+// get all intermediate headers as list of els
+// const initialScrapedLevelHeader = read it from file or db; it should store the name not index because the indices could technically change; alternatively; store the "number" part of the level as that's more universal
+// let lastScrapedLevelIndex = headers.findIndex(el => el === initialScrapedLevelHeader)
+// if (-1) throw or something
+// else scrapeLevel(lastScrapedLevelIndex + 1);
+//
+
+// navigation will most likely happens as forward-back instead of opening things in new pages
+// because of that, the headerEls[] array will have different references and it should
+// const browser = await puppeteer.launch();
+
+// how about making it more generic?
+// lastScrapedEL for ANY deck
+// get lsit of all Els
+// findIndex(el => el === lastScrapedEl);
+// if (index + 1 === list.length) logger.info('All done, exiting')
+// if (-1) logger.error('Provide different initial or w/e. Exiting)
+// else scrapeEl(index + 1);
+// on successful finish of scrapeEl - lastScrapedEl = textOf index + 1
+
+// another idea would be to maintain a list of scraped decks
+// instead of relying on specific ordering, and the fact that new decks aren't
+// added BEFORE your last scraped one in hte list, you could just store all the
+// scraped ones and compare
+// after comparing you're left with an array of elHandles and you scrape from there,
+// adding the newly completed ones to that list
+console.log(myName);

@@ -12,6 +12,17 @@ export default async function scrapeSentence(
     'main div.reveal-prompt div.field-name::-p-text(Personal Notes)',
   );
 
+  /*
+  // Listen for any console messages from the page
+  page.on('console', (msg) => {
+    // Filter by type if you only want logs, not warnings/errors
+    if (msg.type() === 'log') {
+      // msg.text() holds the text passed to console.log(...)
+      console.log(`PAGE LOG> ${msg.text()}`);
+    }
+  });
+  */
+
   const noteSection = await page.$('main div.reveal-prompt');
   if (!noteSection) {
     throw new Error('scrapeSentence() failed to find noteSection.');
@@ -47,6 +58,7 @@ export default async function scrapeSentence(
     );
     highlightEndIndex = highlightStartIndex + highlightText.length;
   } catch (err) {
+    // RENAME THIS
     throw new Error(
       `scrapeSentence() failed to scrape sentence text. Error: ${err}`,
     );

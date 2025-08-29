@@ -18,6 +18,7 @@ const logger = pino({
         target: "pino/file",
         level: "info",
         options: {
+          // this might be busted on windows, I think it should be passed as separate args instead of /unix/like/path
           destination: path.resolve("." + "/logs/info.log"),
           mkdir: true,
         },
